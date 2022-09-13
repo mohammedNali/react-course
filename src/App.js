@@ -1,8 +1,9 @@
 import React from "react";
 import "./App.css";
-import Expenses from "./components/Expenses";
+import Expenses from "./components/Expenses/Expenses";
+import NewExpense from "./components/NewExpense/NewExpense";
 
-function App() {
+const App = () => {
   const products = [
     {
       id: "e1",
@@ -33,8 +34,8 @@ function App() {
 
   return (
     <div>
-      <h1>Let's Get Started</h1>
-      <Expenses products={products} />
+      <NewExpense />
+      <Expenses products={products}/>
     </div>
   );
 }

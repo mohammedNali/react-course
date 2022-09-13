@@ -1,8 +1,8 @@
-import Card from "./Card";
+import Card from "../UI/Card";
 import ExpenseItem from "./ExpenseItem";
 import './Expenses.css';
 
-function Expenses(props) {
+const Expenses = (props) => {
   return (
     <Card className="expenses">
       <ExpenseItem
@@ -25,6 +25,8 @@ function Expenses(props) {
         price={props.products[3].price}
         date={props.products[3].date}
       ></ExpenseItem>
+
+      <h2>{ props.mTitle }</h2>
     </Card>
   );
 }
