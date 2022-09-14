@@ -4,15 +4,11 @@ import ExpenseDate from "./ExpenseDate";
 import Card from "../UI/Card";
 
 const ExpenseItem = (props) => {
-  // console.log("ExpenseItem evaluated by React");
-  let title = props.title;
-  
 
-  const [myTitle, setMyTitle] = useState(title);
+  const [myTitle, setMyTitle] = useState(props.title);
   const [myDate, setMyDate] = useState(props.date);
   const [myPrice, setMyPrice] = useState(props.price);
 
-  // let title = props.title;
 
   const clickHandler = () => {
     const newDate = new Date(2022, 9, 13);

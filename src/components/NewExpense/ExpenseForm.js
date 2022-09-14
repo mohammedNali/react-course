@@ -1,18 +1,34 @@
 import "./ExpenseForm.css";
 import {useState} from "react";
 
-
 const ExpenseForm = () => {
+    let counter = 1;
+    const [title_temp, setTitle] = useState('');
+    const [price_temp, setPrice] = useState(1);
+    const [date_temp, setDate] = useState(new Date());
+    const [products, setProduct] = useState(JSON.parse(localStorage.getItem('products') || '[]'));
 
-    const [title, setTitle] = useState('');
-    const [price, setPrice] = useState(1);
-    const [date, setDate] = useState(new Intl.DateTimeFormat('en-GB', {dateStyle: 'medium'}).format(new Date));
+
+    const longEnUSFormatter = new Intl.DateTimeFormat('en-US', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+    })
+    console.log(longEnUSFormatter.format(firstValentineOfTheDecade))
+
 
     // add expense value in array
     const add_expense = () => {
-        console.log(title);
-        console.log(price);
-        console.log(date)
+        const temp = {
+            id: counter++,
+            title: title_temp,
+            price: price_temp,
+            date: date_temp,
+        }
+        products.push(temp);
+        setProduct(products);
+        localStorage.setItem('products', JSON.stringify(products));
+        clear_expense();
     }
 
     // Clear all input in Expense Form
@@ -30,7 +46,7 @@ const ExpenseForm = () => {
             <div className="new-expense__controls">
                 <div className="new-expense__control">
                     <label>Title</label>
-                    <input type="text" value={title} onChange={(e) => {
+                    <input type="text" value={title_temp} onChange={(e) => {
                         setTitle(e.target.value)
                     }}/>
                 </div>
@@ -38,7 +54,7 @@ const ExpenseForm = () => {
                 <div className="new-expense__control">
                     <label>Price</label>
                     <input type="number" min="1" step="0.1"
-                           value={price} onChange={(e) => {
+                           value={price_temp} onChange={(e) => {
                         setPrice(parseFloat(e.target.value))
                     }}/>
                 </div>
@@ -46,7 +62,7 @@ const ExpenseForm = () => {
                 <div className="new-expense__control">
                     <label>Date</label>
                     <input type="date" min="2022-01-01" max="2022-12-31"
-                           value={date} onChange={(e) => {
+                           value={date_temp} onChange={(e) => {
                         setDate(e.target.value)
                     }}/>
                 </div>
@@ -62,4 +78,4 @@ const ExpenseForm = () => {
     );
 };
 
-export default ExpenseForm;
+export {ExpenseForm};
