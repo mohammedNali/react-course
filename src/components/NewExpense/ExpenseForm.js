@@ -1,6 +1,17 @@
 import "./ExpenseForm.css";
+import {useState} from "react";
+
+
+
 const ExpenseForm = () => {
-  return (
+
+    const [title, setTitle] = useState('');
+    const [price, setPrice] = useState(0.1);
+    const [date, setDate] = useState(new Intl.DateTimeFormat('en-GB', { dateStyle: 'medium'}).format(new Date));
+
+
+    return (
+
     <form>
       <div className="new-expense__controls">
         <div className="new-expense__control">
