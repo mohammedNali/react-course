@@ -1,20 +1,22 @@
 import "./ExpenseForm.css";
 import {useState} from "react";
 
+const longEnUSFormatter = new Intl.DateTimeFormat('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+})
+
 const ExpenseForm = () => {
     let counter = 1;
+    const date = longEnUSFormatter.format(new Date());
     const [title_temp, setTitle] = useState('');
     const [price_temp, setPrice] = useState(1);
-    const [date_temp, setDate] = useState(new Date());
+    const [date_temp, setDate] = useState(date);
     const [products, setProduct] = useState(JSON.parse(localStorage.getItem('products') || '[]'));
 
 
-    const longEnUSFormatter = new Intl.DateTimeFormat('en-US', {
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric',
-    })
-    console.log(longEnUSFormatter.format(firstValentineOfTheDecade))
+    console.log(date_temp)
 
 
     // add expense value in array
