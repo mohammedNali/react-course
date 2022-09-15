@@ -7,7 +7,6 @@ const App = () => {
 
     // get products from local storage in your browser
     const products = JSON.parse(localStorage.getItem('products') || '[]');
-    console.log(products)
 
   return (
     <div>

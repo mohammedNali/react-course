@@ -11,7 +11,7 @@ const ExpenseItem = (props) => {
 
 
   const clickHandler = () => {
-    const newDate = new Date(2022, 9, 13);
+    const newDate = '2022,02,15';
 
     setMyTitle("Updated Value!");
     console.log(myTitle);
