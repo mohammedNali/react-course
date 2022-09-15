@@ -15,7 +15,7 @@ const ExpenseForm = () => {
     // add expense value in array
     const add_expense = () => {
         const temp = {
-            id: counter += 1,
+            id: products.length + 1, // create auto ID
             title: title,
             price: price,
             date: date,
@@ -24,7 +24,6 @@ const ExpenseForm = () => {
         products.push(temp);
         setProduct(products);
         localStorage.setItem('products', JSON.stringify(products));
-        clear_expense();
     }
 
     // Clear all input in Expense Form
@@ -34,7 +33,7 @@ const ExpenseForm = () => {
     }
 
     return (
-        <>
+        <form>
             <div className="new-expense__controls">
                 <div className="new-expense__control">
                     <label>Title</label>
@@ -61,12 +60,12 @@ const ExpenseForm = () => {
             </div>
 
             <div className="new-expense__actions">
-                <button onClick={add_expense}>Add Expense</button>
+                <button type='submit' onClick={add_expense}>Add Expense</button>
                 <button onClick={clear_expense}>Clear Expense</button>
             </div>
 
 
-        </>
+        </form>
     );
 };
 
