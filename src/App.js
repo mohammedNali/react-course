@@ -31,13 +31,17 @@ const App = () => {
     },
   ];
 
+  const addExpenseHandler = (expense) => {
+    console.log("In App.js");
+    console.log(expense);
+  };
 
   return (
     <div>
-      <NewExpense />
-      <Expenses products={products}/>
+      <NewExpense onAddExpense={addExpenseHandler} />
+      <Expenses products={products} />
     </div>
   );
-}
+};
 
 export default App;
