@@ -7,7 +7,7 @@ const NewExpense = (props) => {
       ...enteredExpenseData,
       id: Math.random().toString(),
     };
-    console.log("Printed from NewExpense.js file ", expenseData);
+    // console.log("Printed from NewExpense.js file ", expenseData);
     props.onAddExpense(expenseData);
   };
 
