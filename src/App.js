@@ -8,7 +8,7 @@ const INITAL_EXPENSES = [
     id: "e1",
     title: "BMW Car",
     price: 20000,
-    date: new Date(2022, 7, 14),
+    date: new Date(2022, 8, 14),
   },
   {
     id: "e2",
@@ -37,6 +37,8 @@ const App = () => {
     // setExpenses([expense, ...expenses]);
     setExpenses((prevState) => [expense, ...prevState]);
   };
+
+  let _fontSize = 100 + 'px';
 
   return (
     <div>
